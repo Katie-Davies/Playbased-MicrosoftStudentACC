@@ -1,9 +1,8 @@
 import { useState } from 'react'
 
-import LogoPng from './assets/Logo500x500.png'
-import LogoJPG from './assets/Logo500x500.jpg'
+import LogoPng from '../assets/Logo500x500.png'
+import LogoJPG from '../assets/Logo500x500.jpg'
 import viteLogo from '/vite.svg'
-import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,7 +14,7 @@ function App() {
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
-          <img src={LogoPng} alt="logo png" />
+          <img src={LogoPng} alt="logo png" className="w-24 h-auto" />
           <img src={LogoJPG} className="logo react" alt="logo jpg" />
         </a>
       </div>
@@ -28,7 +27,7 @@ function App() {
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
+      <p className="text-4xl">
         Click on the Vite and React logos to learn more
       </p>
     </>
