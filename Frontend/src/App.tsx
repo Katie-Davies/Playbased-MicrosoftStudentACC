@@ -15,7 +15,7 @@ function App() {
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
-          <img src={LogoPng} className="logo react" alt="logo png" />
+          <img src={LogoPng} alt="logo png" />
           <img src={LogoJPG} className="logo react" alt="logo jpg" />
         </a>
       </div>
