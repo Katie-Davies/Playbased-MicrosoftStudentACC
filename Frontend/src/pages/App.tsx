@@ -18,18 +18,19 @@ function App() {
           <img src={LogoJPG} className="logo react" alt="logo jpg" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1 className="font-sueEllen">Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <p>
+        <p className="font-montserrat">
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
       <p className="text-4xl">
         Click on the Vite and React logos to learn more
       </p>
+      <h1 className="font-sueEllen">Font 1</h1>
     </>
   )
 }
