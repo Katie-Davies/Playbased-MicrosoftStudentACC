@@ -1,12 +1,14 @@
 import { Outlet } from 'react-router-dom'
+import Landing from './Landing'
 
 function App() {
   // const location = useLocation()
   return (
     <>
-      <div className="app flex flex-col min-h-screen">
+      <div>
         {/* <header>{location.pathname !== '/' ? 'Home' : 'not home'}</header> */}
         <main className="main">
+          <Landing />
           <Outlet />
         </main>
         <footer className="mt-auto">
