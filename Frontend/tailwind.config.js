@@ -2,7 +2,12 @@
 export default {
   content: ['./index.html', './src/**/*.tsx'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sueEllen: ['"Sue Ellen Francisco"', 'cursive'],
+        montserrat: ['Montserrat', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
