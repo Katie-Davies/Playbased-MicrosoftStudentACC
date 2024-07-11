@@ -27,10 +27,10 @@ function App() {
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <p className="text-4xl">
+      <p className="text-4xl text-red-600">
         Click on the Vite and React logos to learn more
       </p>
-      <h1 className="font-sueEllen">Font 1</h1>
+      <h1 className="text-8xl text-red-600 ">Font 1</h1>
     </>
   )
 }
