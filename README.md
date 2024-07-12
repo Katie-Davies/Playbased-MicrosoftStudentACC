@@ -13,9 +13,12 @@ This is an idea for my Phase 2 Microsoft Student Accelerator. It will be an appl
 ## Backend Development:
 
 * Set up ASP.NET Core Web API project.
-* Implement user authentication with ASP.NET Identity.
+<!---* Implement user authentication with ASP.NET Identity.-->
 * Design and implement the database schema using Entity Framework Core.
-* Develop API endpoints for activities, user submissions, and searching.
+* Develop API endpoints for activities, user favourites, and searching.
+
+## Database
+* Set up Azure SQL Database and configure connection strings.
 
 ## Frontend Development:
 
@@ -30,19 +33,14 @@ This is an idea for my Phase 2 Microsoft Student Accelerator. It will be an appl
 
 ## Testing:
 
-* Write unit tests and integration tests for backend API endpoints.
-* Test frontend components and interactions with Jest and React Testing Library.
-* Perform user acceptance testing with teachers and parents.
+* Write unit tests for backend API endpoints.
+* Test frontend components and interactions with Jest and React Testing Library. Explore using Storybook
+
 
 ## Deployment:
 
 * Deploy the backend to Azure App Service.
-* Set up Azure SQL Database and configure connection strings.
 * Deploy the frontend to Azure Static Web Apps or a similar service.
 
-## Monitoring and Maintenance:
 
-* Set up application monitoring with Azure Application Insights.
-* Implement logging and error handling in the backend.
-* Gather user feedback and iterate on features and usability.
 
