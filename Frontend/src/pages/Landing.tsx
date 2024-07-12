@@ -1,4 +1,5 @@
 import girlPainting from '../assets/girlpaint.jpg'
+import logo from '../assets/Logo500x500.png'
 
 function Landing() {
   return (
@@ -6,11 +7,21 @@ function Landing() {
       <img
         src={girlPainting}
         alt="Little girl covered in paint"
-        className="w-full h-auto sm:h-64 md:h-screen col-span-1"
+        className="w-2/3  md:w-full h-auto sm:h-auto md:h-screen col-span-1"
       />
-      <h1 className="col-span-1 md:col-span-2 text-center md:text-left">
-        Landing Page
-      </h1>
+
+      <div className="col-span-1 md:col-span-2 text-center md:text-left">
+        <div className="flex flex-col justify-center content-center flex-wrap h-screen items-center">
+          <img
+            src={logo}
+            alt="Bright Beginnings Logo"
+            className="w-1/2 h-auto mx-auto md:ml-0"
+          />
+          <h1 className="text-center font-sueEllen text-4xl">
+            Learn Create Play
+          </h1>
+        </div>
+      </div>
     </div>
   )
 }
