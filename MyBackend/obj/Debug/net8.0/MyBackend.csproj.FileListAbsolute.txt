@@ -31,3 +31,4 @@
 /Users/katiedavies/webDevelopment/microsoft-student-accelerator/Phase2/Playbased/MyBackend/obj/Debug/net8.0/MyBackend.pdb
 /Users/katiedavies/webDevelopment/microsoft-student-accelerator/Phase2/Playbased/MyBackend/obj/Debug/net8.0/MyBackend.genruntimeconfig.cache
 /Users/katiedavies/webDevelopment/microsoft-student-accelerator/Phase2/Playbased/MyBackend/obj/Debug/net8.0/ref/MyBackend.dll
+/Users/katiedavies/webDevelopment/microsoft-student-accelerator/Phase2/Playbased/MyBackend/obj/Debug/net8.0/MyBackend.sourcelink.json
