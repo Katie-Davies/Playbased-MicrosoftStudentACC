@@ -15,11 +15,14 @@ function Landing() {
           <img
             src={logo}
             alt="Bright Beginnings Logo"
-            className="w-1/2 h-auto mx-auto md:ml-0"
+            className="w-1/2 h-auto  "
           />
-          <h1 className="text-center font-sueEllen text-6xl md:text-8xl">
+          <h1 className="text-center font-sueEllen text-6xl md:text-8xl text-customGreen mb-3">
             Learn Create Play
           </h1>
+          <button className="bg-customGreen text-white w-1/3 p-3 text-2xl rounded-full">
+            Explore
+          </button>
         </div>
       </div>
     </div>
