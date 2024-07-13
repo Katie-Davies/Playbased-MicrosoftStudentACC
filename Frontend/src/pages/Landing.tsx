@@ -1,5 +1,6 @@
 import girlPainting from '../assets/girlpaint.jpg'
 import logo from '../assets/Logo500x500.png'
+import Button from '../components/Button'
 
 function Landing() {
   return (
@@ -20,9 +21,7 @@ function Landing() {
           <h1 className="text-center font-sueEllen text-6xl md:text-8xl text-customGreen mb-3">
             Learn Create Play
           </h1>
-          <button className="bg-customGreen text-white w-1/3 p-3 text-2xl rounded-full">
-            Explore
-          </button>
+          <Button className="w-1/3">Explore</Button>
         </div>
       </div>
     </div>
