@@ -7,9 +7,9 @@ function Layout() {
   return (
     <>
       <div>
-        {/* <header>{location.pathname !== '/' ? 'Home' : 'not home'}</header> */}
         <main className="main">
-          {location.pathname !== '/' ? <Nav /> : null}
+          {/* {location.pathname !== '/' ? <Nav /> : null} */}
+          <Nav />
           <Outlet />
         </main>
         <footer className="mt-auto">
