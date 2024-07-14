@@ -1,5 +1,5 @@
 import { createRoutesFromElements, Route } from 'react-router-dom'
-import App from './pages/App'
+
 import Landing from './pages/Landing'
 import Favourites from './pages/Favourites'
 import Activities from './pages/Activities'
