@@ -19,9 +19,9 @@ const CustomCard = styled(Card)(({ theme }) => ({
 
 const CustomCardMedia = styled(CardMedia)(({ theme }) => ({
   border: '3px solid #588c7e',
-  borderRadius: '8px',
+  borderRadius: '20%',
   height: '200px',
-  margin: '10px',
+  marginTop: '10px',
   width: '75%',
 }))
 
