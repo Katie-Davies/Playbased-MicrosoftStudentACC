@@ -12,6 +12,7 @@ import girlPaint from '../assets/girlpaint.jpg'
 const CustomCard = styled(Card)(({ theme }) => ({
   border: '3px solid #BF8C80',
   maxWidth: 345,
+  minWidth: 300,
   borderRadius: '20%',
 }))
 
