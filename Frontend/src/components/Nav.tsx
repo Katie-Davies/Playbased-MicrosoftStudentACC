@@ -6,7 +6,9 @@ function Nav() {
   return (
     <>
       <div className="flex justify-start flex-wrap content-center">
-        <img src={logo} alt="logo" className="w-20 h-auto" />
+        <Link to="/">
+          <img src={logo} alt="logo" className="w-20 h-auto" />
+        </Link>
         {location.pathname === '/activities' ? (
           <Link
             to="favourites"
