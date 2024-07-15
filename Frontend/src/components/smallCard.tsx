@@ -7,6 +7,7 @@ import {
 } from '@mui/material'
 import { styled } from '@mui/system'
 import girlPaint from '../assets/girlpaint.jpg'
+import { useNavigate } from 'react-router-dom'
 
 // Custom styles using the styled utility
 const CustomCard = styled(Card)(({ theme }) => ({
@@ -31,8 +32,9 @@ const CustomTypography = styled(Typography)(({ theme }) => ({
 }))
 
 function SmallCard() {
+  const navigate = useNavigate()
   function handleClick() {
-    console.log('Button clicked')
+    navigate('/activities/1')
   }
   return (
     <div className="m-5">
