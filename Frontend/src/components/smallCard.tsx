@@ -1,36 +1,77 @@
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
-import Typography from '@mui/material/Typography'
-import { CardActionArea, CardActions } from '@mui/material'
-import Button from './Button'
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  CardActionArea,
+} from '@mui/material'
+import { styled } from '@mui/system'
 import girlPaint from '../assets/girlpaint.jpg'
 
+// Custom styles using the styled utility
+const CustomCard = styled(Card)(({ theme }) => ({
+  border: '3px solid #BF8C80',
+  maxWidth: 345,
+  borderRadius: '20%',
+}))
+
+const CustomCardMedia = styled(CardMedia)(({ theme }) => ({
+  border: '3px solid #588c7e',
+  borderRadius: '8px',
+  height: '200px',
+  margin: '10px',
+  width: '75%',
+}))
+
+const CustomTypography = styled(Typography)(({ theme }) => ({
+  fontFamily: 'Sue Ellen Francisco, cursive',
+  fontSize: '2rem',
+  color: '#Bf8c80',
+}))
+
 function SmallCard() {
-  const Style = {
-    height: '200px',
+  function handleClick() {
+    console.log('Button clicked')
   }
   return (
     <div className="m-5">
-      <Card key={5} sx={{ maxWidth: 345 }}>
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            style={Style}
-            image={girlPaint}
-            alt="Girl painting"
-          />
+      <CustomCard>
+        <CardActionArea onClick={handleClick}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: '200px',
+              marginTop: '20px',
+            }}
+          >
+            <CustomCardMedia
+              component="img"
+              image={girlPaint}
+              alt="Girl painting"
+              style={{ objectFit: 'cover', borderRadius: '8px' }}
+            />
+          </div>
+
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Chalk Painting
-            </Typography>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: 'auto',
+              }}
+            >
+              <CustomTypography gutterBottom variant="h5" component="div">
+                Chalk Painting
+              </CustomTypography>
+            </div>
           </CardContent>
-          <CardActions disableSpacing={true}>
-            <Button>More</Button>
-          </CardActions>
         </CardActionArea>
-      </Card>
+      </CustomCard>
     </div>
   )
 }
+
 export default SmallCard
