@@ -66,7 +66,7 @@ function SmallCard() {
                 height: 'auto',
               }}
             >
-              <CustomTypography gutterBottom variant="h5" component="div">
+              <CustomTypography gutterBottom variant="h5">
                 Chalk Painting
               </CustomTypography>
             </div>
