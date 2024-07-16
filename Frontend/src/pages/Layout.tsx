@@ -7,7 +7,7 @@ function Layout() {
   return (
     <>
       <div>
-        <main className="main">
+        <main className="main mb-20">
           {/* {location.pathname !== '/' ? <Nav /> : null} */}
           <Nav />
           <Outlet />
