@@ -8,14 +8,13 @@ This is an idea for my Phase 2 Microsoft Student Accelerator. It will be an appl
 
 - Define detailed requirements and wireframes.
 - Create a database schema diagram.
-- Set up the project repository and branch strategy.
 
 ## Backend Development:
 
 - Set up ASP.NET Core Web API project.
 <!---* Implement user authentication with ASP.NET Identity.-->
 - Design and implement the database schema using Entity Framework Core.
-- Develop API endpoints for activities, user favourites, and searching.
+- Develop API endpoints for activities, user, favourites, and searching.
 
 ## Database
 
