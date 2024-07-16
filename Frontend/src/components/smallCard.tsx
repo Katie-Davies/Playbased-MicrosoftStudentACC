@@ -77,8 +77,12 @@ function SmallCard() {
               <CustomTypography gutterBottom variant="h5">
                 Chalk Painting
               </CustomTypography>
-              <IconButton onClick={handleLike}>
-                {liked ? <Favorite color="error" /> : <FavoriteBorder />}
+              <IconButton onClick={handleLike} style={{ color: '#BF8C80' }}>
+                {liked ? (
+                  <Favorite style={{ color: '#BF8C80' }} />
+                ) : (
+                  <FavoriteBorder />
+                )}
               </IconButton>
             </div>
           </CardContent>
