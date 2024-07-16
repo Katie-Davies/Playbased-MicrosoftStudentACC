@@ -4,10 +4,13 @@ import {
   CardMedia,
   Typography,
   CardActionArea,
+  IconButton,
 } from '@mui/material'
 import { styled } from '@mui/system'
 import girlPaint from '../assets/girlpaint.jpg'
 import { useNavigate } from 'react-router-dom'
+import { Favorite, FavoriteBorder } from '@mui/icons-material'
+import { useState } from 'react'
 
 // Custom styles using the styled utility
 const CustomCard = styled(Card)(({ theme }) => ({
@@ -33,13 +36,17 @@ const CustomTypography = styled(Typography)(({ theme }) => ({
 
 function SmallCard() {
   const navigate = useNavigate()
+  const [liked, setLiked] = useState(false)
   function handleClick() {
     navigate('/activities/1')
+  }
+  function handleLike() {
+    setLiked(!liked)
   }
   return (
     <div className="m-5">
       <CustomCard>
-        <CardActionArea onClick={handleClick}>
+        <CardActionArea>
           <div
             style={{
               display: 'flex',
@@ -54,6 +61,7 @@ function SmallCard() {
               image={girlPaint}
               alt="Girl painting"
               style={{ objectFit: 'cover', borderRadius: '8px' }}
+              onClick={handleClick}
             />
           </div>
 
@@ -69,6 +77,9 @@ function SmallCard() {
               <CustomTypography gutterBottom variant="h5">
                 Chalk Painting
               </CustomTypography>
+              <IconButton onClick={handleLike}>
+                {liked ? <Favorite color="error" /> : <FavoriteBorder />}
+              </IconButton>
             </div>
           </CardContent>
         </CardActionArea>
