@@ -1,8 +1,39 @@
+import GirlPaint from '../assets/girlpaint.jpg'
+
+const data = {
+  name: 'Chalk Painting',
+  image: GirlPaint,
+  Description:
+    'Mix water, cornFlower and food coloring to make chalk paint. Use paint brushes to paint the sidewalk.',
+  Materials: ['Water', 'CornFlower', 'Food Coloring', 'Paint Brushes'],
+  Duration: '30 minutes',
+  Age: ['0-1', '1-2', '2-3', '3-4', '4+'],
+}
+
 function ActivityInformation() {
   return (
-    <div>
-      <h1>Activity Information</h1>
-    </div>
+    <>
+      <div className="flex justify-center flex-wrap content-center">
+        <div className="bg-customGreen rounded-2xl h-auto  max-h-md max-w-md w-64 md:w-1/3 flex justify-center mx-10">
+          <img
+            src={data.image}
+            alt="girl Painting"
+            className=" p-6 rounded-2xl"
+          />
+        </div>
+        <div className=" justify-center flex-col max-w-96 flex flex-wrap content-center text-center ">
+          <h1 className="text-6xl text-customGreen font-sueEllen m-3 pt-5">
+            {data.name}
+          </h1>
+          <h1 className="font-bold text-xl">Materials:</h1>
+          <p className="m-3"> {data.Materials.join(', ')}</p>
+          <h1 className="font-bold text-xl">Instructions:</h1>
+          <p className="m-3"> {data.Description}</p>
+          <h1 className="font-bold text-xl">Age:</h1>
+          <p className="m-3">{data.Age.join(', ')}</p>
+        </div>
+      </div>
+    </>
   )
 }
 
