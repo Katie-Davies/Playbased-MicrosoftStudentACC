@@ -20,7 +20,7 @@ function ActivityInformation() {
   }
   return (
     <>
-      <div className="flex justify-center flex-wrap content-center">
+      <div className=" flex justify-center flex-wrap content-center  ">
         <div className="bg-customGreen rounded-2xl h-auto  max-h-md max-w-md w-64 md:w-1/3 flex justify-center mx-10 flex-col">
           <img
             src={data.image}
