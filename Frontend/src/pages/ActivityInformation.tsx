@@ -1,7 +1,4 @@
-import { useState } from 'react'
 import GirlPaint from '../assets/girlpaint.jpg'
-import { IconButton } from '@mui/material'
-import { Favorite, FavoriteBorder } from '@mui/icons-material'
 import FavouriteButton from '../components/FavouriteButton'
 
 const data = {
