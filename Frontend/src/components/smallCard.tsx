@@ -20,13 +20,15 @@ const CustomCard = styled(Card)(({ theme }) => ({
   borderRadius: '20%',
 }))
 
-const CustomCardMedia = styled(CardMedia)(({ theme }) => ({
-  border: '3px solid #588c7e',
-  borderRadius: '20%',
-  height: '200px',
-  marginTop: '10px',
-  width: '75%',
-}))
+const CustomCardMedia = styled(CardMedia)<{ component: React.ElementType }>(
+  ({ theme }) => ({
+    border: '3px solid #588c7e',
+    borderRadius: '20%',
+    height: '200px',
+    marginTop: '10px',
+    width: '75%',
+  })
+)
 
 const CustomTypography = styled(Typography)(({ theme }) => ({
   fontFamily: 'Sue Ellen Francisco, cursive',
@@ -40,13 +42,14 @@ function SmallCard() {
   function handleClick() {
     navigate('/activities/1')
   }
-  function handleLike() {
+  function handleLike(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    event.stopPropagation()
     setLiked(!liked)
   }
   return (
     <div className="m-5">
       <CustomCard>
-        <CardActionArea>
+        <CardActionArea onClick={handleClick}>
           <div
             style={{
               display: 'flex',
@@ -61,7 +64,6 @@ function SmallCard() {
               image={girlPaint}
               alt="Girl painting"
               style={{ objectFit: 'cover', borderRadius: '8px' }}
-              onClick={handleClick}
             />
           </div>
 
