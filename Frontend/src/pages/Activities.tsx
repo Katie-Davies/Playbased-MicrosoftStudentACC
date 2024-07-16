@@ -1,5 +1,6 @@
 import SmallCard from '../components/smallCard'
 import searchIcon from '../assets/icons8-search-50.png'
+import Button from '../components/Button'
 
 function Activities() {
   return (
@@ -19,6 +20,13 @@ function Activities() {
           alt="search icon"
           className="w-6 h-6 absolute right-4 top-1/2 transform -translate-y-1/2"
         />
+      </div>
+      <div className="flex justify-center">
+        <Button className="w-24 mx-4">0 - 1</Button>
+        <Button className="w-24 mx-4">1 - 2</Button>
+
+        <Button className="w-24 mx-4">2 - 3</Button>
+        <Button className="w-24 mx-4">4 +</Button>
       </div>
       <div className="flex justify-around flex-wrap ">
         <SmallCard />
