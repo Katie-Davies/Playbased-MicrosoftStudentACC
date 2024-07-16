@@ -2,6 +2,7 @@ import { useState } from 'react'
 import GirlPaint from '../assets/girlpaint.jpg'
 import { IconButton } from '@mui/material'
 import { Favorite, FavoriteBorder } from '@mui/icons-material'
+import FavouriteButton from '../components/FavouriteButton'
 
 const data = {
   name: 'Chalk Painting',
@@ -14,10 +15,6 @@ const data = {
 }
 
 function ActivityInformation() {
-  const [liked, setLiked] = useState(false)
-  function handleLike() {
-    setLiked(!liked)
-  }
   return (
     <>
       <div className=" flex justify-center flex-wrap content-center  ">
@@ -33,13 +30,7 @@ function ActivityInformation() {
             <h1 className="text-6xl text-customGreen font-sueEllen m-3 pt-5 pb-5">
               {data.name}
             </h1>
-            <IconButton onClick={handleLike} style={{ color: '#BF8C80' }}>
-              {liked ? (
-                <Favorite style={{ color: '#BF8C80' }} />
-              ) : (
-                <FavoriteBorder />
-              )}
-            </IconButton>
+            <FavouriteButton />
           </div>
           <h1 className="font-bold text-xl">Materials:</h1>
           <p className="m-3"> {data.Materials.join(', ')}</p>
