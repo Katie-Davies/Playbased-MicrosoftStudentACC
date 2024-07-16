@@ -1,4 +1,7 @@
+import { useState } from 'react'
 import GirlPaint from '../assets/girlpaint.jpg'
+import { IconButton } from '@mui/material'
+import { Favorite, FavoriteBorder } from '@mui/icons-material'
 
 const data = {
   name: 'Chalk Painting',
@@ -11,20 +14,33 @@ const data = {
 }
 
 function ActivityInformation() {
+  const [liked, setLiked] = useState(false)
+  function handleLike() {
+    setLiked(!liked)
+  }
   return (
     <>
       <div className="flex justify-center flex-wrap content-center">
-        <div className="bg-customGreen rounded-2xl h-auto  max-h-md max-w-md w-64 md:w-1/3 flex justify-center mx-10">
+        <div className="bg-customGreen rounded-2xl h-auto  max-h-md max-w-md w-64 md:w-1/3 flex justify-center mx-10 flex-col">
           <img
             src={data.image}
             alt="girl Painting"
-            className=" p-6 rounded-2xl"
+            className="m-5 rounded-2xl"
           />
         </div>
         <div className=" justify-center flex-col max-w-96 flex flex-wrap content-center text-center ">
-          <h1 className="text-6xl text-customGreen font-sueEllen m-3 pt-5">
-            {data.name}
-          </h1>
+          <div className="flex justify-center">
+            <h1 className="text-6xl text-customGreen font-sueEllen m-3 pt-5 pb-5">
+              {data.name}
+            </h1>
+            <IconButton onClick={handleLike} style={{ color: '#BF8C80' }}>
+              {liked ? (
+                <Favorite style={{ color: '#BF8C80' }} />
+              ) : (
+                <FavoriteBorder />
+              )}
+            </IconButton>
+          </div>
           <h1 className="font-bold text-xl">Materials:</h1>
           <p className="m-3"> {data.Materials.join(', ')}</p>
           <h1 className="font-bold text-xl">Instructions:</h1>
