@@ -8,8 +8,8 @@ namespace MyBackend.Models
   {
     [Key]
     public int Id { get; set; }
-    public string Title { get; set; }
-    public string Description { get; set}
+    public required string Title { get; set; }
+    public required string Description { get; set; }
 
     public int AgeGroupId { get; set; }
     //provides a diret reference to 
@@ -17,7 +17,7 @@ namespace MyBackend.Models
 
     public int CategoryId { get; set; }
     //provides a diret reference to 
-    public Category Category { get; set; }
+    public required Category Category { get; set; }
 
     // These represent the relationship i.e many to many
     public ICollection<Favourite> Favourites { get; set; }
