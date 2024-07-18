@@ -14,7 +14,7 @@ This is an idea for my Phase 2 Microsoft Student Accelerator. It will be an appl
 - Set up ASP.NET Core Web API project.
 <!---* Implement user authentication with ASP.NET Identity.-->
 - Design and implement the database schema using Entity Framework Core.
-- Develop API endpoints for activities, user, favourites, and searching.
+- Develop API endpoints for activities, user, favourites, and searching by age, or category.
 
 ## Database
 
