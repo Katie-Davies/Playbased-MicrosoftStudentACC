@@ -12,11 +12,14 @@ namespace MyBackend.Models
     public string Description { get; set}
 
     public int AgeGroupId { get; set; }
+    //provides a diret reference to 
     public AgeGroup AgeGroup { get; set; }
 
     public int CategoryId { get; set; }
+    //provides a diret reference to 
     public Category Category { get; set; }
 
+    // These represent the relationship i.e many to many
     public ICollection<Favourite> Favourites { get; set; }
     public ICollection<ActivityMaterial> ActivityMaterials { get; set; }
 
