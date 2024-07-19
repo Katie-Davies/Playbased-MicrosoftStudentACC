@@ -35,7 +35,7 @@ public class UserService : IUserService
     await _context.SaveChangesAsync();
     return user;
   }
-  public async Task<String> DeleteUserAsync(int id)
+  public async Task<string> DeleteUserAsync(int id)
   {
     var user = await _context.Users.FindAsync(id);
     if (user == null)

@@ -10,5 +10,5 @@ public interface IUserService
 
   Task<User> CreateUserAsync(User user);
   Task<User> UpdateUserAsync(User user);
-  Task<User> DeleteUserAsync(int id);
+  Task<string> DeleteUserAsync(int id);
 }
