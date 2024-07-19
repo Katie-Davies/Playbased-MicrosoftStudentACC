@@ -6,6 +6,10 @@ using MyBackend.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Register services
+builder.Services.AddScoped<IActivityService, ActivityService>();
+
+
 // Configure logging
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
