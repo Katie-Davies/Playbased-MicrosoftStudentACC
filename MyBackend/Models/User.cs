@@ -11,5 +11,12 @@ namespace MyBackend.Models
     public string Email { get; set; }
 
     public ICollection<Favourite> Favourites { get; set; }
+
+    public User()
+    {
+      Favourites = new List<Favourite>();
+      Username = "";
+      Email = "";
+    }
   }
 }

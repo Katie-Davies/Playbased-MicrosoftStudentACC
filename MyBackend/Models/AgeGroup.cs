@@ -7,8 +7,14 @@ namespace MyBackend.Models
   {
     [Key]
     public int id { get; set; }
-    public required string Range { get; set; }
+    public string Range { get; set; }
 
-    public required ICollection<Activity> Activities { get; set; }
+    public ICollection<Activity> Activities { get; set; }
+
+    public AgeGroup()
+    {
+      Activities = new List<Activity>();
+      Range = "";
+    }
   }
 }

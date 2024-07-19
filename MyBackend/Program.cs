@@ -1,8 +1,8 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using DotNetEnv;
 using MyBackend.Data;
 using MyBackend.Models;
-using Microsoft.EntityFrameworkCore;
-using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,12 +10,17 @@ var builder = WebApplication.CreateBuilder(args);
 DotNetEnv.Env.Load();
 
 // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-  c.SwaggerDoc("v1", new OpenApiInfo { Title = "Playbased API", Description = "Activities your little ones will love!", Version = "v1" });
+  c.SwaggerDoc("v1", new OpenApiInfo
+  {
+    Title = "Playbased API",
+    Description = "Activities your little ones will love!",
+    Version = "v1"
+  });
 });
+
 builder.Services.AddHttpsRedirection(options =>
 {
   options.HttpsPort = 7219; // Your HTTPS port as per launchSettings.json
@@ -39,17 +44,13 @@ if (app.Environment.IsDevelopment())
 {
   app.UseSwagger();
   app.UseSwaggerUI(c =>
-   {
-     c.SwaggerEndpoint("/swagger/v1/swagger.json", "PlaybasedActivities API V1");
-   }); ;
+  {
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "PlaybasedActivities API V1");
+  });
 }
 
-
 app.UseHttpsRedirection();
-
 
 app.MapGet("/", () => "Hello World!");
 
 app.Run();
-
-

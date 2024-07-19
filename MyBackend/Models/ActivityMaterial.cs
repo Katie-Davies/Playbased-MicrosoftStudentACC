@@ -8,8 +8,8 @@ namespace MyBackend.Models
   {
     [Key]
     public int ActivityId { get; set; }
-    public required Activity Activity { get; set; }
+    public Activity? Activity { get; set; }
     public int MaterialId { get; set; }
-    public required Material Material { get; set; }
+    public Material? Material { get; set; }
   }
 }

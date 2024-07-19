@@ -12,5 +12,11 @@ namespace MyBackend.Models
     public string Name { get; set; }
 
     public ICollection<Activity> Activities { get; set; }
+
+    public Category()
+    {
+      Activities = new List<Activity>();
+      Name = "";
+    }
   }
 }

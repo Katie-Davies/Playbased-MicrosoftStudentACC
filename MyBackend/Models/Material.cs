@@ -10,5 +10,11 @@ namespace MyBackend.Models
     public int Id { get; set; }
     public string Name { get; set; }
     public ICollection<ActivityMaterial> ActivityMaterials { get; set; }
+
+    public Material()
+    {
+      ActivityMaterials = new List<ActivityMaterial>();
+      Name = "";
+    }
   }
 }
