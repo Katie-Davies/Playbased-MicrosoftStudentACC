@@ -6,8 +6,18 @@ using MyBackend.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure logging
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
 // Load environment variables from .env file
+// DotNetEnv.Env.Load();
 DotNetEnv.Env.Load();
+Console.WriteLine(Environment.GetEnvironmentVariable("SQLSERVER"));
+Console.WriteLine(Environment.GetEnvironmentVariable("DATABASE"));
+Console.WriteLine(Environment.GetEnvironmentVariable("USER_ID"));
+Console.WriteLine(Environment.GetEnvironmentVariable("PASSWORD"));
+
 
 // Add services to the container.
 builder.Services.AddEndpointsApiExplorer();
@@ -26,6 +36,7 @@ builder.Services.AddSwaggerGen(c =>
 //   options.HttpsPort = 7219; // Your HTTPS port as per launchSettings.json
 // });
 
+builder.Services.AddControllers();
 // Configure Entity Framework and SQL Server
 var sqlServer = Environment.GetEnvironmentVariable("SQLSERVER");
 var database = Environment.GetEnvironmentVariable("DATABASE");
@@ -50,7 +61,10 @@ if (app.Environment.IsDevelopment())
 }
 
 // app.UseHttpsRedirection();
+app.UseRouting();
+app.MapControllers();
 
 app.MapGet("/", () => "Hello World!");
+
 
 app.Run();
