@@ -1,6 +1,13 @@
 using Microsoft.OpenApi.Models;
+using MyBackend.Data;
+using MyBackend.Models;
+using Microsoft.EntityFrameworkCore;
+using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Load environment variables from .env file
+DotNetEnv.Env.Load();
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -13,6 +20,17 @@ builder.Services.AddHttpsRedirection(options =>
 {
   options.HttpsPort = 7219; // Your HTTPS port as per launchSettings.json
 });
+
+// Configure Entity Framework and SQL Server
+var sqlServer = Environment.GetEnvironmentVariable("SQLSERVER");
+var database = Environment.GetEnvironmentVariable("DATABASE");
+var userId = Environment.GetEnvironmentVariable("USER_ID");
+var password = Environment.GetEnvironmentVariable("PASSWORD");
+
+var connectionString = $"Server=tcp:{sqlServer};Initial Catalog={database};Persist Security Info=False;User ID={userId};Password={password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(connectionString));
 
 var app = builder.Build();
 
