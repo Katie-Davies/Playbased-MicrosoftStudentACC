@@ -21,10 +21,10 @@ builder.Services.AddSwaggerGen(c =>
   });
 });
 
-builder.Services.AddHttpsRedirection(options =>
-{
-  options.HttpsPort = 7219; // Your HTTPS port as per launchSettings.json
-});
+// builder.Services.AddHttpsRedirection(options =>
+// {
+//   options.HttpsPort = 7219; // Your HTTPS port as per launchSettings.json
+// });
 
 // Configure Entity Framework and SQL Server
 var sqlServer = Environment.GetEnvironmentVariable("SQLSERVER");
@@ -49,7 +49,7 @@ if (app.Environment.IsDevelopment())
   });
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
 app.MapGet("/", () => "Hello World!");
 
