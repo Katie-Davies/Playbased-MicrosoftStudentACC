@@ -3,6 +3,7 @@ using Microsoft.OpenApi.Models;
 using DotNetEnv;
 using MyBackend.Data;
 using MyBackend.Models;
+using Azure.Storage.Blobs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,10 +18,8 @@ builder.Logging.AddConsole();
 // Load environment variables from .env file
 // DotNetEnv.Env.Load();
 DotNetEnv.Env.Load();
-Console.WriteLine(Environment.GetEnvironmentVariable("SQLSERVER"));
-Console.WriteLine(Environment.GetEnvironmentVariable("DATABASE"));
-Console.WriteLine(Environment.GetEnvironmentVariable("USER_ID"));
-Console.WriteLine(Environment.GetEnvironmentVariable("PASSWORD"));
+
+// Add services to the container.
 
 
 // Add services to the container.
@@ -52,7 +51,19 @@ var connectionString = $"Server=tcp:{sqlServer};Initial Catalog={database};Persi
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
+
+
+// Register BlobServiceClient with the connection string from the environment variables
+builder.Services.AddSingleton(x =>
+{
+  var connectionString = builder.Configuration["STORAGE_KEY"];
+  return new BlobServiceClient(connectionString);
+});
+
 var app = builder.Build();
+
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
