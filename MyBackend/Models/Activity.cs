@@ -32,6 +32,7 @@ namespace MyBackend.Models
       ActivityMaterials = new List<ActivityMaterial>();
       Title = "";
       Description = "";
+      ImageUrl = "";
     }
   }
 }
