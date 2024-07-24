@@ -143,3 +143,7 @@
 /Users/katiedavies/webDevelopment/microsoft-student-accelerator/Phase2/Playbased/MyBackend/bin/Debug/net8.0/Azure.Storage.Common.dll
 /Users/katiedavies/webDevelopment/microsoft-student-accelerator/Phase2/Playbased/MyBackend/bin/Debug/net8.0/System.ClientModel.dll
 /Users/katiedavies/webDevelopment/microsoft-student-accelerator/Phase2/Playbased/MyBackend/bin/Debug/net8.0/System.IO.Hashing.dll
+/Users/katiedavies/webDevelopment/microsoft-student-accelerator/Phase2/Playbased/MyBackend/bin/Debug/net8.0/Microsoft.AspNetCore.JsonPatch.dll
+/Users/katiedavies/webDevelopment/microsoft-student-accelerator/Phase2/Playbased/MyBackend/bin/Debug/net8.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/Users/katiedavies/webDevelopment/microsoft-student-accelerator/Phase2/Playbased/MyBackend/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/katiedavies/webDevelopment/microsoft-student-accelerator/Phase2/Playbased/MyBackend/bin/Debug/net8.0/Newtonsoft.Json.Bson.dll

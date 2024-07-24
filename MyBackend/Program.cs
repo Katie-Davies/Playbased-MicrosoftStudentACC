@@ -4,6 +4,7 @@ using DotNetEnv;
 using MyBackend.Data;
 using MyBackend.Models;
 using Azure.Storage.Blobs;
+using Newtonsoft.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
