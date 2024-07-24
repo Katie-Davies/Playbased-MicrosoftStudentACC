@@ -39,7 +39,10 @@ builder.Services.AddSwaggerGen(c =>
 //   options.HttpsPort = 7219; // Your HTTPS port as per launchSettings.json
 // });
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+                {
+                  options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                }); ;
 // Configure Entity Framework and SQL Server
 var sqlServer = Environment.GetEnvironmentVariable("SQLSERVER");
 var database = Environment.GetEnvironmentVariable("DATABASE");
