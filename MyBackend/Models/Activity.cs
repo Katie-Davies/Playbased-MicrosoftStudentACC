@@ -19,6 +19,8 @@ namespace MyBackend.Models
     //provides a diret reference to 
     public Category? Category { get; set; }
 
+    public string ImageUrl { get; set; } // Add this property
+
     // These represent the relationship i.e many to many
     public ICollection<Favourite> Favourites { get; set; }
     public ICollection<ActivityMaterial> ActivityMaterials { get; set; }
@@ -30,6 +32,7 @@ namespace MyBackend.Models
       ActivityMaterials = new List<ActivityMaterial>();
       Title = "";
       Description = "";
+      ImageUrl = "";
     }
   }
 }

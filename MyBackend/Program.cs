@@ -3,6 +3,8 @@ using Microsoft.OpenApi.Models;
 using DotNetEnv;
 using MyBackend.Data;
 using MyBackend.Models;
+using Azure.Storage.Blobs;
+using Newtonsoft.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,10 +19,8 @@ builder.Logging.AddConsole();
 // Load environment variables from .env file
 // DotNetEnv.Env.Load();
 DotNetEnv.Env.Load();
-Console.WriteLine(Environment.GetEnvironmentVariable("SQLSERVER"));
-Console.WriteLine(Environment.GetEnvironmentVariable("DATABASE"));
-Console.WriteLine(Environment.GetEnvironmentVariable("USER_ID"));
-Console.WriteLine(Environment.GetEnvironmentVariable("PASSWORD"));
+
+// Add services to the container.
 
 
 // Add services to the container.
@@ -40,7 +40,10 @@ builder.Services.AddSwaggerGen(c =>
 //   options.HttpsPort = 7219; // Your HTTPS port as per launchSettings.json
 // });
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+                {
+                  options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                }); ;
 // Configure Entity Framework and SQL Server
 var sqlServer = Environment.GetEnvironmentVariable("SQLSERVER");
 var database = Environment.GetEnvironmentVariable("DATABASE");
@@ -52,7 +55,19 @@ var connectionString = $"Server=tcp:{sqlServer};Initial Catalog={database};Persi
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
+
+
+// Register BlobServiceClient with the connection string from the environment variables
+builder.Services.AddSingleton(x =>
+{
+  var connectionString = builder.Configuration["STORAGE_KEY"];
+  return new BlobServiceClient(connectionString);
+});
+
 var app = builder.Build();
+
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
