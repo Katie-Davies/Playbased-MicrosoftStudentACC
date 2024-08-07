@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Register services
 builder.Services.AddScoped<IActivityService, ActivityService>();
-
+builder.Services.AddScoped<IUserService, UserService>();
 
 // Configure logging
 builder.Logging.ClearProviders();
