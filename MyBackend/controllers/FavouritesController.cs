@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using MyBackend.Dtos;
 using MyBackend.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ public class FavouritesController : ControllerBase
     _favouriteService = favouriteService;
   }
 
-  [HttpGet("{id}")]
+  [HttpGet("{id}", Name = "GetFavouritesByUserId")]
   public async Task<ActionResult<IEnumerable<Favourite>>> GetFavouritesByUserIdAsync(int id)
   {
     var favourites = await _favouriteService.GetAllFavouritesByUserIdAsync(id);
@@ -25,5 +26,21 @@ public class FavouritesController : ControllerBase
       return NotFound();
     }
     return Ok(favourites);
+  }
+
+  [HttpPost]
+  public async Task<ActionResult<Favourite>> AddFavouriteAsync(FavouriteDto favouriteDto)
+  {
+    var favourite = new Favourite
+    {
+      ActivityId = favouriteDto.ActivityId,
+      UserId = favouriteDto.UserId
+    };
+
+    var newFavourite = await _favouriteService.AddFavouriteAsync(favourite);
+    return CreatedAtRoute(
+            routeName: "GetFavouritesByUserId", // Ensure this route exists
+            routeValues: new { id = favouriteDto.UserId }, // Use appropriate parameter
+            value: newFavourite);
   }
 }
