@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Register services
 builder.Services.AddScoped<IActivityService, ActivityService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IFavouriteService, FavouriteService>();
 
 // Configure logging
 builder.Logging.ClearProviders();
@@ -22,6 +23,18 @@ DotNetEnv.Env.Load();
 
 // Add services to the container.
 
+
+// Configure CORS
+builder.Services.AddCors(options =>
+{
+  options.AddPolicy("AllowSpecificOrigin",
+      builder =>
+      {
+        builder.WithOrigins("http://localhost:5173") // Frontend URL
+                 .AllowAnyHeader()
+                 .AllowAnyMethod();
+      });
+});
 
 // Add services to the container.
 builder.Services.AddEndpointsApiExplorer();
@@ -81,6 +94,9 @@ if (app.Environment.IsDevelopment())
 
 // app.UseHttpsRedirection();
 app.UseRouting();
+
+// Apply the CORS policy
+app.UseCors("AllowSpecificOrigin");
 app.MapControllers();
 
 app.MapGet("/", () => "Hello World!");
