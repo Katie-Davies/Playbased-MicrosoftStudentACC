@@ -17,9 +17,14 @@ public class UserService : IUserService
   {
     return await _context.Users.ToListAsync();
   }
-  public async Task<List<User>> GetUserByIdAsync(int id)
+  public async Task<User?> GetUserByIdAsync(int id)
   {
-    return await _context.Users.Where(u => u.Id == id).ToListAsync();
+    var user = await _context.Users.FindAsync(id);
+    if (user == null)
+    {
+      return null;
+    }
+    return user;
   }
 
   public async Task<User> CreateUserAsync(User user)
