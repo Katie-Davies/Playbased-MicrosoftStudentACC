@@ -7,7 +7,7 @@ export async function getAllUsers() {
   return users.body
 }
 
-export async function getUserById(id: string) {
+export async function getUserById(id: number) {
   const user = await request.get(`${rootUrl}/users/${id}`)
   return user.body
 }

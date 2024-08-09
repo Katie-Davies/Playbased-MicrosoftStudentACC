@@ -13,7 +13,8 @@ function Landing() {
 
   const { data, isError, isLoading } = useGetUserById('1')
   if (data) {
-    console.log(data)
+    const id = data.id
+    console.log(typeof id)
   }
 
   return (
