@@ -2,19 +2,12 @@ import girlPainting from '../assets/girlpaint.jpg'
 import logo from '../assets/Logo500x500.png'
 import Button from '../components/Button'
 import { useNavigate } from 'react-router-dom'
-import { useGetUserById } from '../hooks/useGetUserById'
 
 function Landing() {
   const navigate = useNavigate()
 
   function handleClick() {
     navigate('/activities')
-  }
-
-  const { data, isError, isLoading } = useGetUserById('1')
-  if (data) {
-    const id = data.id
-    console.log(typeof id)
   }
 
   return (
