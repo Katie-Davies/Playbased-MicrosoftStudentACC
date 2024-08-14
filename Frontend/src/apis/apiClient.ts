@@ -1,4 +1,5 @@
 import request from 'superagent'
+import { User } from '../models/models'
 
 const rootUrl = 'http://localhost:5091/api'
 
@@ -12,7 +13,7 @@ export async function getUserById(id: number) {
   return user.body
 }
 
-export async function createUser(user) {
+export async function createUser(user: User) {
   const newUser = await request.post(`${rootUrl}/users`).send(user)
   return newUser.body
 }
