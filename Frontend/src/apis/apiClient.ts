@@ -29,3 +29,10 @@ export async function getAllActivities() {
   const activities = await request.get(`${rootUrl}/activities`)
   return activities.body
 }
+
+export async function getActivitiesByAgeGroup(ageId: number) {
+  const activities = await request.get(
+    `${rootUrl}/activities/agegroup/${ageId}`
+  )
+  return activities.body
+}
