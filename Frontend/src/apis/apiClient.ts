@@ -17,3 +17,7 @@ export async function createUser(user: User) {
   const newUser = await request.post(`${rootUrl}/users`).send(user)
   return newUser.body
 }
+
+export async function deleteUser(id: number) {
+  return await request.del(`${rootUrl}/users/${id}`)
+}
