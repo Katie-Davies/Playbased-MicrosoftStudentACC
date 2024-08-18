@@ -36,3 +36,13 @@ export async function getActivitiesByAgeGroup(ageId: number) {
   )
   return activities.body
 }
+
+//favourites request
+//get
+export async function getAllFavourites(userId: number) {
+  const favourites = await request.get(`${rootUrl}/favourites/${userId}`)
+  return favourites.body
+}
+//add
+
+//delete

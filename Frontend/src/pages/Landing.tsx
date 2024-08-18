@@ -1,4 +1,4 @@
-import { getActivitiesByAgeGroup } from '../apis/apiClient'
+import { getActivitiesByAgeGroup, getAllFavourites } from '../apis/apiClient'
 import girlPainting from '../assets/girlpaint.jpg'
 import logo from '../assets/Logo500x500.png'
 import Button from '../components/Button'
@@ -11,7 +11,7 @@ function Landing() {
     navigate('/activities')
   }
 
-  console.log(getActivitiesByAgeGroup(1))
+  console.log(getAllFavourites(7))
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 place-items-center">
       <img
