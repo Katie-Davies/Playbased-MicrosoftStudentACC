@@ -13,3 +13,9 @@ export interface Activity {
   category: string
   imgUrl: string
 }
+
+export interface Favourite {
+  id?: number
+  userId: number
+  activityId: number
+}

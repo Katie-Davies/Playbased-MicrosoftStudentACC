@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { User } from '../models/models'
+import { Favourite, User } from '../models/models'
 
 const rootUrl = 'http://localhost:5091/api'
 
@@ -44,5 +44,13 @@ export async function getAllFavourites(userId: number) {
   return favourites.body
 }
 //add
-
+export async function addFavourite(favourite: Favourite) {
+  const addedFavourite = await request
+    .post(`${rootUrl}/favourites`)
+    .send(favourite)
+  return addedFavourite.body
+}
 //delete
+export async function deleteFavourite(id: number) {
+  return await request.del(`${rootUrl}/favourites/${id}`)
+}
