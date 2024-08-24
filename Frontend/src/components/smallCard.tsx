@@ -35,7 +35,20 @@ const CustomTypography = styled(Typography)(({ theme }) => ({
   color: '#Bf8c80',
 }))
 
-function SmallCard() {
+interface SmallCardProps {
+  title: string
+
+  description: string
+
+  ageGroup: string
+
+  materials: string
+  imgurl: string
+
+  id: number
+}
+
+function SmallCard(props: SmallCardProps) {
   const navigate = useNavigate()
 
   function handleClick() {

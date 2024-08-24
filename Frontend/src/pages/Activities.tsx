@@ -4,6 +4,7 @@ import Button from '../components/Button'
 import { useState } from 'react'
 import { useGetAllActivities } from '../hooks/useGetAllActivities'
 import { useGetActivitiesByAge } from '../hooks/useGetActivitiesByAge'
+import { Activity } from '../models/models'
 
 function Activities() {
   const [selectedId, setSelectedId] = useState<number | null>(null)
@@ -15,6 +16,12 @@ function Activities() {
   const handleButtonClick = (id: number) => {
     setSelectedId(id)
   }
+
+  if (allActivitiesLoading || activitiesByAgeLoading) {
+    return <div>Loading...</div>
+  }
+  const activities = selectedId == null ? allActivities : activitiesByAge
+
   return (
     <div className="flex flex-col content-center flex-wrap items-center">
       <div className="flex justify-center">
@@ -65,6 +72,19 @@ function Activities() {
         </Button>
       </div>
       <div className="flex justify-around flex-wrap ">
+        {activities.map((activity: Activity) => {
+          return (
+            <SmallCard
+              key={activity.id}
+              title={activity.title}
+              description={activity.description}
+              ageGroup={activity.ageGroup}
+              materials={activity.materials}
+              imgUrl={activity.imgUrl}
+              id={activity.id}
+            />
+          )
+        })}
         <SmallCard />
         <SmallCard />
         <SmallCard />
