@@ -1,8 +1,20 @@
 import SmallCard from '../components/smallCard'
 import searchIcon from '../assets/icons8-search-50.png'
 import Button from '../components/Button'
+import { useState } from 'react'
+import { useGetAllActivities } from '../hooks/useGetAllActivities'
+import { useGetActivitiesByAge } from '../hooks/useGetActivitiesByAge'
 
 function Activities() {
+  const [selectedId, setSelectedId] = useState<number | null>(null)
+  const { data: allActivities, isLoading: allActivitiesLoading } =
+    useGetAllActivities()
+  const { data: activitiesByAge, isLoading: activitiesByAgeLoading } =
+    useGetActivitiesByAge(selectedId)
+
+  const handleButtonClick = (id: number) => {
+    setSelectedId(id)
+  }
   return (
     <div className="flex flex-col content-center flex-wrap items-center">
       <div className="flex justify-center">
@@ -22,11 +34,35 @@ function Activities() {
         />
       </div>
       <div className="flex justify-center">
-        <Button className="w-24 mx-4">0 - 2</Button>
-        <Button className="w-24 mx-4">3 - 5</Button>
+        <Button
+          className="w-24 mx-4"
+          id="1"
+          onClick={() => handleButtonClick(1)}
+        >
+          0 - 2
+        </Button>
+        <Button
+          className="w-24 mx-4"
+          id="2"
+          onClick={() => handleButtonClick(2)}
+        >
+          3 - 5
+        </Button>
 
-        <Button className="w-24 mx-4">6 - 8</Button>
-        <Button className="w-24 mx-4">9-12</Button>
+        <Button
+          className="w-24 mx-4"
+          id="3"
+          onClick={() => handleButtonClick(3)}
+        >
+          6 - 8
+        </Button>
+        <Button
+          className="w-24 mx-4"
+          id="4"
+          onClick={() => handleButtonClick(4)}
+        >
+          9-12
+        </Button>
       </div>
       <div className="flex justify-around flex-wrap ">
         <SmallCard />
