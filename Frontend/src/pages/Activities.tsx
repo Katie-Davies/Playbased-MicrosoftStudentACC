@@ -22,11 +22,11 @@ function Activities() {
         />
       </div>
       <div className="flex justify-center">
-        <Button className="w-24 mx-4">0 - 1</Button>
-        <Button className="w-24 mx-4">1 - 2</Button>
+        <Button className="w-24 mx-4">0 - 2</Button>
+        <Button className="w-24 mx-4">3 - 5</Button>
 
-        <Button className="w-24 mx-4">2 - 3</Button>
-        <Button className="w-24 mx-4">4 +</Button>
+        <Button className="w-24 mx-4">6 - 8</Button>
+        <Button className="w-24 mx-4">9-12</Button>
       </div>
       <div className="flex justify-around flex-wrap ">
         <SmallCard />
