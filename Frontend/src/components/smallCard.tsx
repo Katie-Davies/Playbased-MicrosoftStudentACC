@@ -6,7 +6,7 @@ import {
   CardActionArea,
 } from '@mui/material'
 import { styled } from '@mui/system'
-import girlPaint from '../assets/girlpaint.jpg'
+
 import { useNavigate } from 'react-router-dom'
 
 import FavouriteButton from './FavouriteButton'

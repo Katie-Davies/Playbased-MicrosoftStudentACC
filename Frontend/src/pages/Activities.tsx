@@ -80,15 +80,11 @@ function Activities() {
               description={activity.description}
               ageGroup={activity.ageGroup}
               materials={activity.materials}
-              imgUrl={activity.imgUrl}
+              imgurl={activity.imgUrl}
               id={activity.id}
             />
           )
         })}
-        <SmallCard />
-        <SmallCard />
-        <SmallCard />
-        <SmallCard />
       </div>
     </div>
   )
