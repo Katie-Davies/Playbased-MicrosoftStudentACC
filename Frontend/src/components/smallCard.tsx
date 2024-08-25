@@ -52,7 +52,7 @@ function SmallCard(props: SmallCardProps) {
   const navigate = useNavigate()
 
   function handleClick() {
-    navigate('/activities/1')
+    navigate(`/activities/${props.id}`)
   }
 
   return (
@@ -70,8 +70,8 @@ function SmallCard(props: SmallCardProps) {
           >
             <CustomCardMedia
               component="img"
-              image={girlPaint}
-              alt="Girl painting"
+              image={props.imgurl}
+              alt={props.title}
               style={{ objectFit: 'cover', borderRadius: '8px' }}
             />
           </div>
@@ -86,7 +86,7 @@ function SmallCard(props: SmallCardProps) {
               }}
             >
               <CustomTypography gutterBottom variant="h5">
-                Chalk Painting
+                {props.title}
               </CustomTypography>
 
               <FavouriteButton />
