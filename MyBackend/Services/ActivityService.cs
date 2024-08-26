@@ -21,16 +21,16 @@ public class ActivityService : IActivityService
   public async Task<List<Activity>> GetActivitiesByAgeGroupAsync(int ageGroupId)
   {
     return await _context.Activities
-        .Where(a => a.AgeGroupId == ageGroupId)
+        .Where(a => a.AgeGroupID == ageGroupId)
         .ToListAsync();
   }
   public async Task<List<Activity>> GetActivitiesByIdAsync(int id)
   {
-    return await _context.Activities.Where(a => a.Id == id).ToListAsync();
+    return await _context.Activities.Where(a => a.ActivityId == id).ToListAsync();
   }
   public async Task<List<Activity>> GetActivitiesByCategoryAsync(int categoryId)
   {
-    return await _context.Activities.Where(a => a.CategoryId == categoryId).ToListAsync();
+    return await _context.Activities.Where(a => a.CategoryID == categoryId).ToListAsync();
   }
 
 }
