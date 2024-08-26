@@ -26,7 +26,7 @@ public class ActivityService : IActivityService
   }
   public async Task<List<Activity>> GetActivitiesByIdAsync(int id)
   {
-    return await _context.Activities.Where(a => a.ActivityId == id).ToListAsync();
+    return await _context.Activities.Where(a => a.ActivityId == id).Include(a => a.ActivityMaterials).ThenInclude(am => am.Material).ToListAsync();
   }
   public async Task<List<Activity>> GetActivitiesByCategoryAsync(int categoryId)
   {
