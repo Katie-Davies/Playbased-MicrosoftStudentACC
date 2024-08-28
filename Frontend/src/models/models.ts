@@ -5,13 +5,13 @@ export interface User {
 }
 
 export interface Activity {
-  id: number
-  title: string
+  activityId: number
+  activityName: string
   description: string
   materials: string
-  ageGroup: string
-  category: string
-  imgUrl: string
+  ageGroupID: number
+  categoryID: number
+  imageUrl: string
 }
 
 export interface Favourite {
