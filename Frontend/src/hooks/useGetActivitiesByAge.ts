@@ -3,7 +3,7 @@ import { getActivitiesByAgeGroup } from '../apis/apiClient'
 
 export function useGetActivitiesByAge(selectedId: number) {
   return useQuery({
-    queryKey: ['age'],
+    queryKey: ['age', selectedId],
     queryFn: async () => await getActivitiesByAgeGroup(selectedId),
   })
 }

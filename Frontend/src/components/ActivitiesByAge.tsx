@@ -10,17 +10,19 @@ function ActivitiesByAge({ selectedId }: { selectedId: number }) {
     return <div>Loading...</div>
   }
 
+  console.log(activitiesByAge)
+
   return (
     <div className="flex justify-around flex-wrap">
       {activitiesByAge?.map((activity: Activity) => (
         <SmallCard
-          key={activity.id}
-          title={activity.title}
+          key={activity.activityId}
+          title={activity.activityName}
           description={activity.description}
-          ageGroup={activity.ageGroup}
+          ageGroup={activity.ageGroupID}
           materials={activity.materials}
-          imgurl={activity.imgUrl}
-          id={activity.id}
+          imgurl={activity.imageUrl}
+          id={activity.activityId}
         />
       ))}
     </div>
