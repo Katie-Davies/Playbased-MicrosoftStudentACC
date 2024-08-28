@@ -41,6 +41,7 @@ interface SmallCardProps {
   description: string
   ageGroupID: number
   categoryID: number
+  materials: string
   imgurl: string
   id: number
 }

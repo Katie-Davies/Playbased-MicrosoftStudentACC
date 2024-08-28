@@ -19,7 +19,8 @@ function ActivitiesByAge({ selectedId }: { selectedId: number }) {
           key={activity.activityId}
           title={activity.activityName}
           description={activity.description}
-          ageGroup={activity.ageGroupID}
+          ageGroupID={activity.ageGroupID}
+          categoryID={activity.categoryID}
           materials={activity.materials}
           imgurl={activity.imageUrl}
           id={activity.activityId}
