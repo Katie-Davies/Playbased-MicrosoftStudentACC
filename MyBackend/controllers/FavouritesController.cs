@@ -43,4 +43,21 @@ public class FavouritesController : ControllerBase
             routeValues: new { id = favouriteDto.UserId }, // Use appropriate parameter
             value: newFavourite);
   }
+  [HttpDelete("{id}")]
+  public async Task<ActionResult> DeleteFavouriteAsync(int id)
+  {
+    var result = await _favouriteService.DeleteFavouriteAsync(id);
+    if (result == "Favourite not found")
+    {
+      return NotFound(new { message = result });
+    }
+    else if (result == "Favourite deleted")
+    {
+      return NoContent();
+    }
+    else
+    {
+      return BadRequest(new { message = result });
+    }
+  }
 }

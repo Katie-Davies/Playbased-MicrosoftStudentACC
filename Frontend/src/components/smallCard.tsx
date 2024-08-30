@@ -6,7 +6,7 @@ import {
   CardActionArea,
 } from '@mui/material'
 import { styled } from '@mui/system'
-import girlPaint from '../assets/girlpaint.jpg'
+
 import { useNavigate } from 'react-router-dom'
 
 import FavouriteButton from './FavouriteButton'
@@ -35,11 +35,19 @@ const CustomTypography = styled(Typography)(({ theme }) => ({
   color: '#Bf8c80',
 }))
 
-function SmallCard() {
+interface SmallCardProps {
+  key: number
+  title: string
+
+  imgurl: string
+  id: number
+}
+
+function SmallCard(props: SmallCardProps) {
   const navigate = useNavigate()
 
   function handleClick() {
-    navigate('/activities/1')
+    navigate(`/activities/${props.id}`)
   }
 
   return (
@@ -57,8 +65,8 @@ function SmallCard() {
           >
             <CustomCardMedia
               component="img"
-              image={girlPaint}
-              alt="Girl painting"
+              image={props.imgurl}
+              alt={props.title}
               style={{ objectFit: 'cover', borderRadius: '8px' }}
             />
           </div>
@@ -73,10 +81,10 @@ function SmallCard() {
               }}
             >
               <CustomTypography gutterBottom variant="h5">
-                Chalk Painting
+                {props.title}
               </CustomTypography>
 
-              <FavouriteButton />
+              <FavouriteButton activityId={props.id} userId={1} />
             </div>
           </CardContent>
         </CardActionArea>

@@ -1,8 +1,16 @@
-import SmallCard from '../components/smallCard'
 import searchIcon from '../assets/icons8-search-50.png'
 import Button from '../components/Button'
+import { useState } from 'react'
+import AllActivities from '../components/AllActivities'
+import ActivitiesByAge from '../components/ActivitiesByAge'
 
 function Activities() {
+  const [selectedId, setSelectedId] = useState<number | null>(null)
+
+  const handleButtonClick = (id: number) => {
+    setSelectedId(id)
+  }
+
   return (
     <div className="flex flex-col content-center flex-wrap items-center">
       <div className="flex justify-center">
@@ -10,7 +18,7 @@ function Activities() {
           Activities
         </h1>
       </div>
-      <div className="m-3 flex justify-between items-center w-9/12 md:w-1/2 bg-burntOrange  rounded-full p-2 relative">
+      <div className="m-3 flex justify-between items-center w-9/12 md:w-1/2 bg-burntOrange rounded-full p-2 relative">
         <input
           placeholder="Search"
           className="w-full bg-transparent pr-10 text-white font-montserrat text-2xl placeholder-white text-center rounded-full focus:outline-none p-2"
@@ -22,18 +30,24 @@ function Activities() {
         />
       </div>
       <div className="flex justify-center">
-        <Button className="w-24 mx-4">0 - 1</Button>
-        <Button className="w-24 mx-4">1 - 2</Button>
-
-        <Button className="w-24 mx-4">2 - 3</Button>
-        <Button className="w-24 mx-4">4 +</Button>
+        <Button className="w-24 mx-4" onClick={() => handleButtonClick(1)}>
+          0 - 2
+        </Button>
+        <Button className="w-24 mx-4" onClick={() => handleButtonClick(2)}>
+          3 - 5
+        </Button>
+        <Button className="w-24 mx-4" onClick={() => handleButtonClick(3)}>
+          6 - 8
+        </Button>
+        <Button className="w-24 mx-4" onClick={() => handleButtonClick(4)}>
+          9-12
+        </Button>
       </div>
-      <div className="flex justify-around flex-wrap ">
-        <SmallCard />
-        <SmallCard />
-        <SmallCard />
-        <SmallCard />
-      </div>
+      {selectedId == null ? (
+        <AllActivities />
+      ) : (
+        <ActivitiesByAge selectedId={selectedId} />
+      )}
     </div>
   )
 }

@@ -19,7 +19,7 @@ public class UsersController : ControllerBase
   public async Task<ActionResult<IEnumerable<User>>> GetUsers()
   {
     var users = await _userService.GetAllUsersAsync();
-    if (users.Count == 0 || users == null)
+    if (users == null || users.Count == 0)
     {
       return NotFound();
     }
@@ -27,10 +27,10 @@ public class UsersController : ControllerBase
   }
 
   [HttpGet("{id}")]
-  public async Task<ActionResult<IEnumerable<User>>> GetUserByIdAsync(int id)
+  public async Task<ActionResult<User>> GetUserByIdAsync(int id)
   {
     var users = await _userService.GetUserByIdAsync(id);
-    if (users.Count == 0 || users == null)
+    if (users == null)
     {
       return NotFound();
     }

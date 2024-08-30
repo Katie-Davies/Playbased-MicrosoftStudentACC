@@ -6,7 +6,7 @@ using MyBackend.Models;
 public interface IUserService
 {
   Task<List<User>> GetAllUsersAsync();
-  Task<List<User>> GetUserByIdAsync(int id);
+  Task<User?> GetUserByIdAsync(int id);
 
   Task<User> CreateUserAsync(User user);
   Task<User> UpdateUserAsync(User user);

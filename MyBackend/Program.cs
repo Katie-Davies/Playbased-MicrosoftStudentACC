@@ -55,6 +55,9 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
                 {
+                  // Configuring to ignore reference loops
+                  options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
                   options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                 }); ;
 // Configure Entity Framework and SQL Server

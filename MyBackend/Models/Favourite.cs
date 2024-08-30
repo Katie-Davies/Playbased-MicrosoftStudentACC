@@ -7,7 +7,8 @@ namespace MyBackend.Models
   public class Favourite
   {
     [Key]
-    public int Id { get; set; }
+    public int FavouriteID { get; set; }
+
     public int ActivityId { get; set; }
     public Activity? Activity { get; set; }
 

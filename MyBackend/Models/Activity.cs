@@ -7,15 +7,15 @@ namespace MyBackend.Models
   public class Activity
   {
     [Key]
-    public int Id { get; set; }
-    public string Title { get; set; }
+    public int ActivityId { get; set; }
+    public string ActivityName { get; set; }
     public string Description { get; set; }
 
-    public int AgeGroupId { get; set; }
+    public int AgeGroupID { get; set; }
     //provides a diret reference to 
     public AgeGroup? AgeGroup { get; set; }
 
-    public int CategoryId { get; set; }
+    public int CategoryID { get; set; }
     //provides a diret reference to 
     public Category? Category { get; set; }
 
@@ -30,7 +30,7 @@ namespace MyBackend.Models
     {
       Favourites = new List<Favourite>();
       ActivityMaterials = new List<ActivityMaterial>();
-      Title = "";
+      ActivityName = "";
       Description = "";
       ImageUrl = "";
     }
