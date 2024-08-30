@@ -27,6 +27,7 @@ function AllActivities() {
               categoryID={activity.categoryID}
               imgurl={activity.imageUrl}
               id={activity.activityId}
+              materials={''}
             />
           )
         )

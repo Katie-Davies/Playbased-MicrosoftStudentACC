@@ -16,7 +16,7 @@ public class FavouriteService : IFavouriteService
   }
   public async Task<List<Favourite>> GetAllFavouritesByUserIdAsync(int id)
   {
-    return await _context.Favourites.Where(f => f.UserId == id).ToListAsync(); ;
+    return await _context.Favourites.Where(f => f.UserId == id).Include(f => f.Activity).ToListAsync();
   }
 
   public async Task<Favourite> AddFavouriteAsync(Favourite favourite)

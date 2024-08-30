@@ -18,4 +18,7 @@ export interface Favourite {
   id?: number
   userId: number
   activityId: number
+  activityName: string
+  imageUrl: string
+  activity: object
 }
