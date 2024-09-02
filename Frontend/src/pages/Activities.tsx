@@ -6,11 +6,21 @@ import ActivitiesByAge from '../components/ActivitiesByAge'
 
 function Activities() {
   const [selectedId, setSelectedId] = useState<number | null>(null)
+  const [search, SetSearch] = useState<string>('')
 
   const handleButtonClick = (id: number) => {
     setSelectedId(id)
   }
 
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    console.log(e.target.value)
+    SetSearch(e.target.value)
+  }
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    console.log('submitted', search)
+    SetSearch('')
+  }
   return (
     <div className="flex flex-col content-center flex-wrap items-center">
       <div className="flex justify-center">
@@ -19,10 +29,14 @@ function Activities() {
         </h1>
       </div>
       <div className="m-3 flex justify-between items-center w-9/12 md:w-1/2 bg-burntOrange rounded-full p-2 relative">
-        <input
-          placeholder="Search"
-          className="w-full bg-transparent pr-10 text-white font-montserrat text-2xl placeholder-white text-center rounded-full focus:outline-none p-2"
-        />
+        <form onSubmit={handleSubmit}>
+          <input
+            placeholder="Search"
+            className="w-full bg-transparent pr-10 text-white font-montserrat text-2xl placeholder-white text-center rounded-full focus:outline-none p-2"
+            onChange={handleChange}
+            value={search}
+          />
+        </form>
         <img
           src={searchIcon}
           alt="search icon"

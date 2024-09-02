@@ -9,29 +9,24 @@ function AllActivities() {
   if (allActivitiesLoading) {
     return <div>Loading...</div>
   }
-  console.log(allActivities)
-  const activities = allActivities[0]
-  console.log(activities.length)
+
+  // const activities = allActivities[0]
 
   return (
     <div className="flex justify-around flex-wrap">
-      {allActivities?.map(
-        (activity: Activity) => (
-          console.log(activity),
-          (
-            <SmallCard
-              key={activity.activityId}
-              title={activity.activityName}
-              description={activity.description}
-              ageGroupID={activity.ageGroupID}
-              categoryID={activity.categoryID}
-              imgurl={activity.imageUrl}
-              id={activity.activityId}
-              materials={''}
-            />
-          )
-        )
-      )}
+      {allActivities?.map((activity: Activity) => (
+        // console.log(activity),
+        <SmallCard
+          key={activity.activityId}
+          title={activity.activityName}
+          description={activity.description}
+          ageGroupID={activity.ageGroupID}
+          categoryID={activity.categoryID}
+          imgurl={activity.imageUrl}
+          id={activity.activityId}
+          materials={''}
+        />
+      ))}
     </div>
   )
 }
