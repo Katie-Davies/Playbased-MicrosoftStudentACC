@@ -4,11 +4,6 @@ import { useGetFavourite } from '../hooks/useGetFavourites'
 import { useGetUserById } from '../hooks/useGetUserById'
 import { Favourite } from '../models/models'
 
-const data = {
-  name: 'katie',
-  email: 'millerjeor@me.com',
-}
-
 interface FavouritesProps {
   id: number
   title: string
@@ -16,8 +11,8 @@ interface FavouritesProps {
 }
 
 function Favourites() {
-  const { data: user, isLoading: userLoading } = useGetUserById(1)
-  const { data: favourites, isLoading: favouritesLoading } = useGetFavourite(1)
+  const { data: user, isLoading: userLoading } = useGetUserById(3)
+  const { data: favourites, isLoading: favouritesLoading } = useGetFavourite(3)
 
   if (userLoading) {
     return <div>User is Loading...</div>
@@ -30,7 +25,7 @@ function Favourites() {
     favourites.map((favourite: Favourite) => {
       const activity = favourite.activity
 
-      console.log(activity.activityName)
+      console.log('activity name', activity.activityName)
     })
   )
   return (
@@ -54,19 +49,14 @@ function Favourites() {
         <h1 className="font-sueEllen text-4xl text-customGreen mb-3 ml-5">
           Favourites
         </h1>
-        {favourites.map(
-          (favourite: FavouritesProps) => (
-            console.log(favourite),
-            (
-              <SmallCard
-                key={favourite.id}
-                title={favourite.title}
-                imgurl={favourite.imgurl}
-                id={favourite.id}
-              />
-            )
-          )
-        )}
+        {favourites.map((favourite: FavouritesProps) => (
+          <SmallCard
+            key={favourite.activity.activityId}
+            title={favourite.activity.activityName}
+            imgurl={favourite.activity.imageUrl}
+            id={favourite.activity.activityId}
+          />
+        ))}
       </div>
     </>
   )
