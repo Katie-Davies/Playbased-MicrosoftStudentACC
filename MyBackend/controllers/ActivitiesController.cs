@@ -53,4 +53,19 @@ public class ActivitiesController : ControllerBase
     }
     return Ok(activities);
   }
+  [HttpGet("materials/{materialName}")]
+  public async Task<ActionResult<IEnumerable<Activity>>> GetMaterialIdByNameAsync(string materialName)
+  {
+    var materialId = await _activityService.GetMaterialIdByNameAsync(materialName);
+    if (materialId == null)
+    {
+      return NotFound();
+    }
+    var activities = await _activityService.GetActivitiesByMaterialAsync(materialId.Value);
+    if (activities.Count == 0 || activities == null)
+    {
+      return NotFound();
+    }
+    return Ok(activities);
+  }
 }
