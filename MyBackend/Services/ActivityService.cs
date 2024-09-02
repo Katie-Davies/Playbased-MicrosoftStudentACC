@@ -39,6 +39,9 @@ public class ActivityService : IActivityService
     var material = await _context.Materials.FirstOrDefaultAsync(m => m.MaterialName == materialName);
     return material?.MaterialID;
   }
-
+  public async Task<List<Activity>> GetActivitiesByMaterialAsync(int materialID)
+  {
+    return await _context.ActivityMaterials.Where(a => a.MaterialId == materialID).Include(a => a.Activity).Select(a => a.Activity!).Where(a => a != null).ToListAsync()!;
+  }
 
 }
