@@ -49,14 +49,16 @@ function Favourites() {
         <h1 className="font-sueEllen text-4xl text-customGreen mb-3 ml-5">
           Favourites
         </h1>
-        {favourites.map((favourite: FavouritesProps) => (
-          <SmallCard
-            key={favourite.activity.activityId}
-            title={favourite.activity.activityName}
-            imgurl={favourite.activity.imageUrl}
-            id={favourite.activity.activityId}
-          />
-        ))}
+        <div className="flex flex-wrap">
+          {favourites.map((favourite: FavouritesProps) => (
+            <SmallCard
+              key={favourite.activity.activityId}
+              title={favourite.activity.activityName}
+              imgurl={favourite.activity.imageUrl}
+              id={favourite.activity.activityId}
+            />
+          ))}
+        </div>
       </div>
     </>
   )
