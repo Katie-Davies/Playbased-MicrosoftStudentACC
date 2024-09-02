@@ -11,4 +11,6 @@ public interface IActivityService
   Task<List<Activity>> GetActivitiesByIdAsync(int id);
   Task<List<Activity>> GetActivitiesByCategoryAsync(int categoryId);
 
+  Task<int?> GetMaterialIdByNameAsync(string materialName);
+
 }
