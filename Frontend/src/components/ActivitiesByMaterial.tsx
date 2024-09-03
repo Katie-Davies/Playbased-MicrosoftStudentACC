@@ -1,34 +1,37 @@
 import SmallCard from '../components/smallCard'
-import { useGetAllActivities } from '../hooks/useGetAllActivities'
 import { Activity } from '../models/models'
+import { useGetActivityByMaterial } from '../hooks/useGetActivityByMaterial'
 
-function AllActivities() {
-  const { data: allActivities, isLoading: allActivitiesLoading } =
-    useGetAllActivities()
+function ActivitiesByMaterial({ search }: { search: string }) {
+  const {
+    data: activitiesByMaterial,
+    isLoading: activitiesByAgeLoading,
+    isError,
+  } = useGetActivityByMaterial(search)
 
-  if (allActivitiesLoading) {
+  if (activitiesByAgeLoading) {
     return <div>Loading...</div>
   }
-
-  // const activities = allActivities[0]
+  if (isError) {
+    return <div>No Activities Found</div>
+  }
 
   return (
     <div className="flex justify-around flex-wrap">
-      {allActivities?.map((activity: Activity) => (
-        // console.log(activity),
+      {activitiesByMaterial?.map((activity: Activity) => (
         <SmallCard
           key={activity.activityId}
           title={activity.activityName}
           description={activity.description}
           ageGroupID={activity.ageGroupID}
           categoryID={activity.categoryID}
+          materials={activity.materials}
           imgurl={activity.imageUrl}
           id={activity.activityId}
-          materials={''}
         />
       ))}
     </div>
   )
 }
 
-export default AllActivities
+export default ActivitiesByMaterial

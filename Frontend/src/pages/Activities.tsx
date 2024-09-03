@@ -4,13 +4,28 @@ import { useState } from 'react'
 import AllActivities from '../components/AllActivities'
 import ActivitiesByAge from '../components/ActivitiesByAge'
 
+import ActivitiesByMaterial from '../components/ActivitiesByMaterial'
+
 function Activities() {
   const [selectedId, setSelectedId] = useState<number | null>(null)
+  const [search, SetSearch] = useState<string>('')
+  const [input, setInput] = useState<string>('')
 
   const handleButtonClick = (id: number) => {
     setSelectedId(id)
   }
 
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    console.log(e.target.value)
+    SetSearch(e.target.value)
+    setInput(e.target.value)
+    setSelectedId(null)
+  }
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setInput('')
+    // SetSearch('')
+  }
   return (
     <div className="flex flex-col content-center flex-wrap items-center">
       <div className="flex justify-center">
@@ -19,10 +34,14 @@ function Activities() {
         </h1>
       </div>
       <div className="m-3 flex justify-between items-center w-9/12 md:w-1/2 bg-burntOrange rounded-full p-2 relative">
-        <input
-          placeholder="Search"
-          className="w-full bg-transparent pr-10 text-white font-montserrat text-2xl placeholder-white text-center rounded-full focus:outline-none p-2"
-        />
+        <form onSubmit={handleSubmit}>
+          <input
+            placeholder="Search"
+            className="w-full bg-transparent pr-10 text-white font-montserrat text-2xl placeholder-white text-center rounded-full focus:outline-none p-2"
+            onChange={handleChange}
+            value={input}
+          />
+        </form>
         <img
           src={searchIcon}
           alt="search icon"
@@ -43,10 +62,12 @@ function Activities() {
           9-12
         </Button>
       </div>
-      {selectedId == null ? (
-        <AllActivities />
-      ) : (
+      {selectedId !== null ? (
         <ActivitiesByAge selectedId={selectedId} />
+      ) : search !== '' ? (
+        <ActivitiesByMaterial search={search} />
+      ) : (
+        <AllActivities />
       )}
     </div>
   )

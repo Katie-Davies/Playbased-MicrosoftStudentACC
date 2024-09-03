@@ -37,6 +37,13 @@ export async function getActivitiesByAgeGroup(ageId: number) {
   return activities.body
 }
 
+export async function getActivityByMaterial(material: string) {
+  const activities = await request.get(
+    `${rootUrl}/activities/materials/${material}`
+  )
+  return activities.body
+}
+
 //favourites request
 //get
 export async function getAllFavourites(userId: number) {

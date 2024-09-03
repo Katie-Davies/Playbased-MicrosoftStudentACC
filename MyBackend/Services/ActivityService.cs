@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MyBackend.Data;
 using MyBackend.Models;
+using System.Formats.Asn1;
 
 public class ActivityService : IActivityService
 {
@@ -31,6 +32,16 @@ public class ActivityService : IActivityService
   public async Task<List<Activity>> GetActivitiesByCategoryAsync(int categoryId)
   {
     return await _context.Activities.Where(a => a.CategoryID == categoryId).ToListAsync();
+  }
+
+  public async Task<int?> GetMaterialIdByNameAsync(string materialName)
+  {
+    var material = await _context.Materials.FirstOrDefaultAsync(m => m.MaterialName == materialName);
+    return material?.MaterialID;
+  }
+  public async Task<List<Activity>> GetActivitiesByMaterialAsync(int materialID)
+  {
+    return await _context.ActivityMaterials.Where(a => a.MaterialId == materialID).Include(a => a.Activity).Select(a => a.Activity!).Where(a => a != null).ToListAsync()!;
   }
 
 }
