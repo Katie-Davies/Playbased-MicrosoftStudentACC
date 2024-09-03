@@ -3,14 +3,17 @@ import { Activity } from '../models/models'
 import { useGetActivityByMaterial } from '../hooks/useGetActivityByMaterial'
 
 function ActivitiesByMaterial({ search }: { search: string }) {
-  const { data: activitiesByMaterial, isLoading: activitiesByAgeLoading } =
-    useGetActivityByMaterial(search)
+  const {
+    data: activitiesByMaterial,
+    isLoading: activitiesByAgeLoading,
+    isError,
+  } = useGetActivityByMaterial(search)
 
   if (activitiesByAgeLoading) {
     return <div>Loading...</div>
   }
-  if (activitiesByMaterial) {
-    console.log(activitiesByMaterial)
+  if (isError) {
+    return <div>No Activities Found</div>
   }
 
   return (

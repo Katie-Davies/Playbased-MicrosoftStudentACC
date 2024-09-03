@@ -19,6 +19,7 @@ function Activities() {
     console.log(e.target.value)
     SetSearch(e.target.value)
     setInput(e.target.value)
+    setSelectedId(null)
   }
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
