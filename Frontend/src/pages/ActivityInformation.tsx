@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom'
 import GirlPaint from '../assets/girlpaint.jpg'
 import FavouriteButton from '../components/FavouriteButton'
 
@@ -12,6 +13,16 @@ const data = {
 }
 
 function ActivityInformation() {
+  const id = useParams<{ id: string }>().id
+
+  const { data: activity, isLoading, isError } = useGetActivityById(id)
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+  if (isError) {
+    return <div>No Activity Found</div>
+  }
+
   return (
     <>
       <div className=" flex justify-center flex-wrap content-center  ">
