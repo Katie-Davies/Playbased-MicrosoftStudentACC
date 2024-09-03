@@ -4,9 +4,12 @@ import { useState } from 'react'
 import AllActivities from '../components/AllActivities'
 import ActivitiesByAge from '../components/ActivitiesByAge'
 
+import ActivitiesByMaterial from '../components/ActivitiesByMaterial'
+
 function Activities() {
   const [selectedId, setSelectedId] = useState<number | null>(null)
   const [search, SetSearch] = useState<string>('')
+  const [input, setInput] = useState<string>('')
 
   const handleButtonClick = (id: number) => {
     setSelectedId(id)
@@ -15,11 +18,12 @@ function Activities() {
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.value)
     SetSearch(e.target.value)
+    setInput(e.target.value)
   }
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    console.log('submitted', search)
-    SetSearch('')
+    setInput('')
+    // SetSearch('')
   }
   return (
     <div className="flex flex-col content-center flex-wrap items-center">
@@ -34,7 +38,7 @@ function Activities() {
             placeholder="Search"
             className="w-full bg-transparent pr-10 text-white font-montserrat text-2xl placeholder-white text-center rounded-full focus:outline-none p-2"
             onChange={handleChange}
-            value={search}
+            value={input}
           />
         </form>
         <img
@@ -57,10 +61,12 @@ function Activities() {
           9-12
         </Button>
       </div>
-      {selectedId == null ? (
-        <AllActivities />
-      ) : (
+      {selectedId !== null ? (
         <ActivitiesByAge selectedId={selectedId} />
+      ) : search !== '' ? (
+        <ActivitiesByMaterial search={search} />
+      ) : (
+        <AllActivities />
       )}
     </div>
   )

@@ -39,7 +39,7 @@ export async function getActivitiesByAgeGroup(ageId: number) {
 
 export async function getActivityByMaterial(material: string) {
   const activities = await request.get(
-    `${rootUrl}/activities/material/${material}`
+    `${rootUrl}/activities/materials/${material}`
   )
   return activities.body
 }
