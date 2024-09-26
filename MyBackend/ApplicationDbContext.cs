@@ -42,7 +42,14 @@ namespace MyBackend.Data
         new AgeGroup { id = 4, Range = "9-12 years" }
       );
       modelBuilder.Entity<Category>().HasData(
-new Category { }
+new Category { CategoryId = 1, Name = "Imaginative Play" },
+new Category { CategoryId = 2, Name = "Construction" },
+new Category { CategoryId = 3, Name = "Art" },
+new Category { CategoryId = 4, Name = "Fantasy" },
+new Category { CategoryId = 5, Name = "Sensory" },
+new Category { CategoryId = 6, Name = "Games with Rules" },
+new Category { CategoryId = 7, Name = "Physical" },
+new Category { CategoryId = 8, Name = "Exploration" }
       );
     }
 
