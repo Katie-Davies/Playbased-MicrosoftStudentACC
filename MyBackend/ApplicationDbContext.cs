@@ -221,6 +221,13 @@ new ActivityMaterial { ActivityId = 33, MaterialId = 8 }
     new User { UserID = 2, Username = "jane_smith", Email = "jane.smith@example.com" }
 );
 
+      modelBuilder.Entity<Favourite>().HasData(
+          new Favourite { FavouriteID = 1, ActivityId = 1, UserId = 1 },
+          new Favourite { FavouriteID = 2, ActivityId = 2, UserId = 1 },
+          new Favourite { FavouriteID = 3, ActivityId = 3, UserId = 2 }
+      );
+
+
 
     }
 
