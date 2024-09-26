@@ -64,8 +64,48 @@ new Category { CategoryId = 8, Name = "Exploration" }
         new Material { MaterialID = 7, MaterialName = "Cardboard" },
         new Material { MaterialID = 8, MaterialName = "Markers" },
         new Material { MaterialID = 9, MaterialName = "Stickers" },
-        new Material { MaterialID = 10, MaterialName = "Paper" }
+        new Material { MaterialID = 10, MaterialName = "Paper" },
+        new Material { MaterialID = 11, MaterialName = "Paint" },
+        new Material { MaterialID = 12, MaterialName = "Cornflour" },
+        new Material { MaterialID = 13, MaterialName = "Balloons" },
+        new Material { MaterialID = 14, MaterialName = "Bubbles" },
+        new Material { MaterialID = 15, MaterialName = "Rice" },
+        new Material { MaterialID = 16, MaterialName = "Pasta" },
+        new Material { MaterialID = 17, MaterialName = "Glitter" },
+        new Material { MaterialID = 18, MaterialName = "Pom Poms" },
+        new Material { MaterialID = 19, MaterialName = "Pipe Cleaners" },
+        new Material { MaterialID = 20, MaterialName = "Cotton Balls" },
+        new Material { MaterialID = 21, MaterialName = "Feathers" },
+        new Material { MaterialID = 22, MaterialName = "Buttons" },
+        new Material { MaterialID = 23, MaterialName = "Beads" },
+        new Material { MaterialID = 24, MaterialName = "Sequins" },
+        new Material { MaterialID = 25, MaterialName = "Glue" },
+        new Material { MaterialID = 26, MaterialName = "Tape" },
+        new Material { MaterialID = 27, MaterialName = "Scissors" },
+        new Material { MaterialID = 28, MaterialName = "Hole Punch" },
+        new Material { MaterialID = 29, MaterialName = "Ruler" },
+        new Material { MaterialID = 30, MaterialName = "Stapler" },
+        new Material { MaterialID = 31, MaterialName = "Paper Clips" },
+        new Material { MaterialID = 32, MaterialName = "Rubber Bands" },
+        new Material { MaterialID = 33, MaterialName = "String" },
+        new Material { MaterialID = 34, MaterialName = "Yarn" },
+        new Material { MaterialID = 35, MaterialName = "Fabric" },
+        new Material { MaterialID = 36, MaterialName = "Felt" },
+        new Material { MaterialID = 37, MaterialName = "Foam" },
+        new Material { MaterialID = 38, MaterialName = "Wood" },
+        new Material { MaterialID = 39, MaterialName = "Plastic" },
+        new Material { MaterialID = 40, MaterialName = "Metal" },
+        new Material { MaterialID = 41, MaterialName = "Glass" },
+        new Material { MaterialID = 42, MaterialName = "Ceramic" },
+        new Material { MaterialID = 43, MaterialName = "Paper Mache" },
+        new Material { MaterialID = 44, MaterialName = "Cardboard" },
+        new Material { MaterialID = 45, MaterialName = "Recycled Materials" },
+        new Material { MaterialID = 46, MaterialName = "Natural Materials" }
         // Add other materials as needed
+      );
+
+      modelBuilder.Entity<Activity>().HasData(
+new Activity { ActivityId = 1, ActivityName = "Building Blocks", Description = "Build a tower with blocks", CategoryID = 2, AgeGroupID = 2 },
       );
 
     }
