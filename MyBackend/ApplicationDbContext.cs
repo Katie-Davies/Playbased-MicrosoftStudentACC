@@ -101,11 +101,11 @@ new Category { CategoryId = 8, Name = "Exploration" }
         new Material { MaterialID = 44, MaterialName = "Cardboard" },
         new Material { MaterialID = 45, MaterialName = "Recycled Materials" },
         new Material { MaterialID = 46, MaterialName = "Natural Materials" },
-        new Material { MaterialID = 47, MaterialName = "Water" }
+        new Material { MaterialID = 47, MaterialName = "Water" },
         new Material { MaterialID = 48, MaterialName = "Baking soda" },
         new Material { MaterialID = 49, MaterialName = "Vinegar" },
         new Material { MaterialID = 50, MaterialName = "Food coloring" },
-        new Material { MaterialID = 51, MaterialName = "Computer" },
+        new Material { MaterialID = 51, MaterialName = "Computer" }
         // Add other materials as needed
       );
 
