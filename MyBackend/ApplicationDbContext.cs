@@ -51,6 +51,23 @@ new Category { CategoryId = 6, Name = "Games with Rules" },
 new Category { CategoryId = 7, Name = "Physical" },
 new Category { CategoryId = 8, Name = "Exploration" }
       );
+
+
+      // Seed Materials
+      modelBuilder.Entity<Material>().HasData(
+        new Material { MaterialID = 1, MaterialName = "Blocks" },
+        new Material { MaterialID = 2, MaterialName = "Puzzles" },
+        new Material { MaterialID = 3, MaterialName = "Books" },
+        new Material { MaterialID = 4, MaterialName = "Art Supplies" },
+        new Material { MaterialID = 5, MaterialName = "Dough" },
+        new Material { MaterialID = 6, MaterialName = "Lego" },
+        new Material { MaterialID = 7, MaterialName = "Cardboard" },
+        new Material { MaterialID = 8, MaterialName = "Markers" },
+        new Material { MaterialID = 9, MaterialName = "Stickers" },
+        new Material { MaterialID = 10, MaterialName = "Paper" }
+        // Add other materials as needed
+      );
+
     }
 
 
