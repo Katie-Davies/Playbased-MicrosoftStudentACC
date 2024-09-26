@@ -216,6 +216,11 @@ new ActivityMaterial { ActivityId = 33, MaterialId = 8 }
 
       // ... add all other mappings between activ6ties and materials
       );
+      modelBuilder.Entity<User>().HasData(
+    new User { UserID = 1, Username = "john_doe", Email = "john.doe@example.com" },
+    new User { UserID = 2, Username = "jane_smith", Email = "jane.smith@example.com" }
+);
+
 
     }
 
