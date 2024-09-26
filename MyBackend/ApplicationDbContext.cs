@@ -32,6 +32,18 @@ namespace MyBackend.Data
       // Configure many-to-many relationship between User and Activity through Favourite
       modelBuilder.Entity<Favourite>().HasOne(f => f.Activity).WithMany(a => a.Favourites).HasForeignKey(f => f.ActivityId);
       modelBuilder.Entity<Favourite>().HasOne(f => f.User).WithMany(u => u.Favourites).HasForeignKey(f => f.UserId);
+
+      //seed data 
+      // seed ageGroups 
+      modelBuilder.Entity<AgeGroup>().HasData(
+        new AgeGroup { id = 1, Range = "0-2 years" },
+        new AgeGroup { id = 2, Range = "3-5 years" },
+        new AgeGroup { id = 3, Range = "6-8 years" },
+        new AgeGroup { id = 4, Range = "9-12 years" }
+      );
+      modelBuilder.Entity<Category>().HasData(
+new Category { }
+      );
     }
 
 
