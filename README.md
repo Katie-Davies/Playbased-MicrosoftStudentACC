@@ -15,6 +15,7 @@ This is an idea for my Phase 2 Microsoft Student Accelerator. It will be an appl
 <!---* Implement user authentication with ASP.NET Identity.-->
 - Design and implement the database schema using Entity Framework Core.
 - Develop API endpoints for activities, user, favourites, and searching by age, or category.
+- Using Azure Blob storage to store images
 
 ## Database
 
@@ -22,15 +23,16 @@ This is an idea for my Phase 2 Microsoft Student Accelerator. It will be an appl
 
 ## Frontend Development:
 
-- Set up the React application with Create React App.
+
 - Implement components for authentication, activity listing, search, and submission forms.
 - Integrate frontend with the backend API using request (superagent).
 - Use React Router for navigation
+- A save favourites feature
 
 ### Stretch
 
 - Create user timetable to add activities for the week
-- A save favourites feature
+
 
 ## Testing:
 
