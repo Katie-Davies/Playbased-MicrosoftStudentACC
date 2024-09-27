@@ -1,5 +1,7 @@
+import { useParams } from 'react-router-dom'
 import GirlPaint from '../assets/girlpaint.jpg'
 import FavouriteButton from '../components/FavouriteButton'
+import useGetActivityById from '../hooks/useGetActivityById'
 
 const data = {
   name: 'Chalk Painting',
@@ -12,6 +14,19 @@ const data = {
 }
 
 function ActivityInformation() {
+  const id = useParams<{ id: string }>().id
+
+  const { data: activity, isLoading, isError } = useGetActivityById(Number(id))
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+  if (isError) {
+    return <div>No Activity Found</div>
+  }
+  if (activity) {
+    console.log(activity)
+  }
+
   return (
     <>
       <div className=" flex justify-center flex-wrap content-center  ">
@@ -27,10 +42,10 @@ function ActivityInformation() {
             <h1 className="text-6xl text-customGreen font-sueEllen m-3 pt-5 pb-5">
               {data.name}
             </h1>
-            <FavouriteButton />
+            <FavouriteButton activityId={activity.activityId} userId={1} />
           </div>
           <h1 className="font-bold text-xl">Materials:</h1>
-          <p className="m-3"> {data.Materials.join(', ')}</p>
+          <p className="m-3"> {activity.join(', ')}</p>
           <h1 className="font-bold text-xl">Instructions:</h1>
           <p className="m-3"> {data.Description}</p>
           <h1 className="font-bold text-xl">Age:</h1>

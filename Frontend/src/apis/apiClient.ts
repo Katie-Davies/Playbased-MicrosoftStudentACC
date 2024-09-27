@@ -43,6 +43,10 @@ export async function getActivityByMaterial(material: string) {
   )
   return activities.body
 }
+export async function getActivityById(id: number) {
+  const activity = await request.get(`${rootUrl}/activities/${id}`)
+  return activity.body
+}
 
 //favourites request
 //get
