@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using MyBackend.Dtos;
 using MyBackend.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -37,8 +38,15 @@ public class UsersController : ControllerBase
     return Ok(users);
   }
   [HttpPost]
-  public async Task<ActionResult<User>> CreateUserAsync(User user)
+  public async Task<ActionResult<User>> CreateUserAsync(CreateUserDto userDto)
   {
+    // map DTO 
+    var user = new User
+    {
+      Username = userDto.Username,
+      Email = userDto.Email
+    };
+
     var newUser = await _userService.CreateUserAsync(user);
     return Ok(newUser);
   }
