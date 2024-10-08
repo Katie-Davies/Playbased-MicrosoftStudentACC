@@ -22,3 +22,8 @@ export interface Favourite {
   imageUrl: string
   activity: object
 }
+
+export interface Material {
+  materialID: number
+  materialName: string
+}
