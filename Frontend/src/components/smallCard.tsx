@@ -85,7 +85,7 @@ function SmallCard(props: SmallCardProps) {
                 {props.title}
               </CustomTypography>
 
-              <FavouriteButton activityId={props.id} userId={1} />
+              <FavouriteButton activityId={props.id} userId={3} />
             </div>
           </CardContent>
         </CardActionArea>

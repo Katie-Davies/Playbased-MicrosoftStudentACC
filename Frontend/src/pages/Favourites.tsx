@@ -19,7 +19,7 @@ function Favourites() {
     return <div>Favourites are Loading...</div>
   }
   user
-
+  console.log(user)
   return (
     <>
       <div className="flex flex-col">
@@ -30,7 +30,7 @@ function Favourites() {
           My details
         </h1>
         <p className="ml-5 mb-2">
-          <span className="font-extrabold text-xl">Name:</span> {user.name}
+          <span className="font-extrabold text-xl">Name:</span> {user.username}
         </p>
         <p className="ml-5 mb-5">
           <span className="font-extrabold text-xl">Email:</span> {user.email}
