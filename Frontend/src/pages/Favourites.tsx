@@ -2,15 +2,15 @@ import Button from '../components/Button'
 import SmallCard from '../components/smallCard'
 import { useGetFavourite } from '../hooks/useGetFavourites'
 import { useGetUserById } from '../hooks/useGetUserById'
-import { Activity, Favourite } from '../models/models'
+import { Activity } from '../models/models'
 
 interface FavouritesProps {
   activity: Activity
 }
 
 function Favourites() {
-  const { data: user, isLoading: userLoading } = useGetUserById(1)
-  const { data: favourites, isLoading: favouritesLoading } = useGetFavourite(1)
+  const { data: user, isLoading: userLoading } = useGetUserById(3)
+  const { data: favourites, isLoading: favouritesLoading } = useGetFavourite(3)
 
   if (userLoading) {
     return <div>User is Loading...</div>
@@ -18,15 +18,8 @@ function Favourites() {
   if (favouritesLoading) {
     return <div>Favourites are Loading...</div>
   }
-  user && favourites
-  // console.log(
-  //   favourites.map((favourite: Favourite) => {
-  //     const activity = favourite.activity
+  user
 
-  //     console.log('activity name', activity.activityName)
-  //   })
-  // )
-  console.log(favourites)
   return (
     <>
       <div className="flex flex-col">
@@ -48,16 +41,20 @@ function Favourites() {
         <h1 className="font-sueEllen text-4xl text-customGreen mb-3 ml-5">
           Favourites
         </h1>
-        <div className="flex flex-wrap">
-          {favourites.map((favourite: FavouritesProps) => (
-            <SmallCard
-              key={favourite.activity.activityId}
-              title={favourite.activity.activityName}
-              imgurl={favourite.activity.imageUrl}
-              id={favourite.activity.activityId}
-            />
-          ))}
-        </div>
+        {favourites ? (
+          <div className="flex flex-wrap">
+            {favourites.map((favourite: FavouritesProps) => (
+              <SmallCard
+                key={favourite.activity.activityId}
+                title={favourite.activity.activityName}
+                imgurl={favourite.activity.imageUrl}
+                id={favourite.activity.activityId}
+              />
+            ))}
+          </div>
+        ) : (
+          <p className="ml-5">No favourites found</p>
+        )}
       </div>
     </>
   )
