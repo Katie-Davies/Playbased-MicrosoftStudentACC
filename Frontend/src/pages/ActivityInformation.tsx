@@ -24,7 +24,7 @@ function ActivityInformation() {
     return <div>No Activity Found</div>
   }
   if (activity) {
-    console.log(activity[0].activityMaterials)
+    console.log(activity[0])
   }
 
   return (
@@ -55,10 +55,8 @@ function ActivityInformation() {
           })}
 
           {/* <p className="m-3"> {activity.join(', ')}</p> */}
-          <h1 className="font-bold text-xl">Instructions:</h1>
+          <h1 className="font-bold text-xl mt-3">Description:</h1>
           <p className="m-3"> {activity[0].description}</p>
-          <h1 className="font-bold text-xl">Age:</h1>
-          {/* <p className="m-3">{activity.Age.join(', ')}</p> */}
         </div>
       </div>
     </>
