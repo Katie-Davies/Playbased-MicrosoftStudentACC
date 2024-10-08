@@ -38,11 +38,9 @@ const CustomTypography = styled(Typography)(({ theme }) => ({
 interface SmallCardProps {
   key: number
   title: string
-  description: string
+
   imgurl: string
-  ageGroupID: number
-  categoryID: number
-  materials: string
+
   id: number
 }
 

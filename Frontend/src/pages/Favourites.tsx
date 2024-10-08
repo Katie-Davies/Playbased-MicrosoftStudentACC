@@ -2,17 +2,15 @@ import Button from '../components/Button'
 import SmallCard from '../components/smallCard'
 import { useGetFavourite } from '../hooks/useGetFavourites'
 import { useGetUserById } from '../hooks/useGetUserById'
-import { Favourite } from '../models/models'
+import { Activity, Favourite } from '../models/models'
 
 interface FavouritesProps {
-  id: number
-  title: string
-  imgurl: string
+  activity: Activity
 }
 
 function Favourites() {
-  const { data: user, isLoading: userLoading } = useGetUserById(3)
-  const { data: favourites, isLoading: favouritesLoading } = useGetFavourite(3)
+  const { data: user, isLoading: userLoading } = useGetUserById(1)
+  const { data: favourites, isLoading: favouritesLoading } = useGetFavourite(1)
 
   if (userLoading) {
     return <div>User is Loading...</div>
@@ -21,13 +19,14 @@ function Favourites() {
     return <div>Favourites are Loading...</div>
   }
   user && favourites
-  console.log(
-    favourites.map((favourite: Favourite) => {
-      const activity = favourite.activity
+  // console.log(
+  //   favourites.map((favourite: Favourite) => {
+  //     const activity = favourite.activity
 
-      console.log('activity name', activity.activityName)
-    })
-  )
+  //     console.log('activity name', activity.activityName)
+  //   })
+  // )
+  console.log(favourites)
   return (
     <>
       <div className="flex flex-col">

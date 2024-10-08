@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom'
 import FavouriteButton from '../components/FavouriteButton'
 import useGetActivityById from '../hooks/useGetActivityById'
-import { Material } from '../models/models'
 
 // const data = {
 //   name: 'Chalk Painting',
@@ -54,7 +53,6 @@ function ActivityInformation() {
             )
           })}
 
-          {/* <p className="m-3"> {activity.join(', ')}</p> */}
           <h1 className="font-bold text-xl mt-3">Description:</h1>
           <p className="m-3"> {activity[0].description}</p>
         </div>
