@@ -38,11 +38,9 @@ const CustomTypography = styled(Typography)(({ theme }) => ({
 interface SmallCardProps {
   key: number
   title: string
-  description: string
+
   imgurl: string
-  ageGroupID: number
-  categoryID: number
-  materials: string
+
   id: number
 }
 
@@ -87,7 +85,7 @@ function SmallCard(props: SmallCardProps) {
                 {props.title}
               </CustomTypography>
 
-              <FavouriteButton activityId={props.id} userId={1} />
+              <FavouriteButton activityId={props.id} userId={3} />
             </div>
           </CardContent>
         </CardActionArea>
